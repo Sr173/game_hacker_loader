@@ -1,0 +1,12 @@
+[submodule "third_party/luajit"]
+	path = third_party/luajit
+	url = https://github.com/LuaJIT/LuaJIT
+[submodule "third_party/spdlog"]
+	path = third_party/spdlog
+	url = https://github.com/gabime/spdlog
+[submodule "third_party/imgui_lua_bindings"]
+	path = third_party/imgui_lua_bindings
+	url = https://github.com/patrickriordan/imgui_lua_bindings
+[submodule "third_party/imgui"]
+	path = third_party/imgui
+	url = https://github.com/ocornut/imgui
