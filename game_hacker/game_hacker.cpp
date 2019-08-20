@@ -2,9 +2,12 @@
 //
 
 #include <iostream>
+#include "lua.hpp"
+#include "Imgui.h"
 
-int main()
+auto main() noexcept -> int
 {
-
+	ImGui::Begin("GGG");
     std::cout << "Hello World!\n";
+	return 0;
 }
