@@ -16,6 +16,21 @@
     <Filter Include="ImGui">
       <UniqueIdentifier>{8fd3097e-de36-46b7-af31-7552aac6a760}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ImguiImpl">
+      <UniqueIdentifier>{564f814b-dff1-4a37-9b52-0aca7384e718}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="script">
+      <UniqueIdentifier>{cd3f92fe-427b-4a63-bbb4-b3869a4195ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="encrypt">
+      <UniqueIdentifier>{34a28aa7-e817-4d73-bc2f-c7c9b025cc2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="encrypt\aes">
+      <UniqueIdentifier>{d0e951cd-6cb6-463f-bcc6-0176e86c0742}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="designed">
+      <UniqueIdentifier>{b7249163-264e-44b0-85af-651cc58a9865}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="game_hacker.cpp">
@@ -36,10 +51,57 @@
     <ClCompile Include="imgui_lua_bindings.cpp">
       <Filter>ImGui</Filter>
     </ClCompile>
+    <ClCompile Include="imgui_impl_dx9.cpp">
+      <Filter>ImguiImpl</Filter>
+    </ClCompile>
+    <ClCompile Include="imgui_impl_win32.cpp">
+      <Filter>ImguiImpl</Filter>
+    </ClCompile>
+    <ClCompile Include="Script.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptData.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptEngine.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="ScriptManager.cpp">
+      <Filter>script</Filter>
+    </ClCompile>
+    <ClCompile Include="aes.c">
+      <Filter>encrypt\aes</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="imgui_iterator.inl">
       <Filter>ImGui</Filter>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="imgui_lua_bindings.h">
+      <Filter>ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="Script.h">
+      <Filter>script</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptData.h">
+      <Filter>script</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptEngine.h">
+      <Filter>script</Filter>
+    </ClInclude>
+    <ClInclude Include="ScriptManager.h">
+      <Filter>script</Filter>
+    </ClInclude>
+    <ClInclude Include="aes.h">
+      <Filter>encrypt\aes</Filter>
+    </ClInclude>
+    <ClInclude Include="aes.hpp">
+      <Filter>encrypt\aes</Filter>
+    </ClInclude>
+    <ClInclude Include="Singleton.hpp">
+      <Filter>designed</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

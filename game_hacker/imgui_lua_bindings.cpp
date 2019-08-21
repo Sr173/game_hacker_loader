@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <imgui.h>
 #include <deque>
+#include "imgui_lua_bindings.h"
 
 extern "C" {
   #include "lua.h"
@@ -19,7 +20,6 @@ extern "C" {
 
 
 // define this global before you call RunString or LoadImGuiBindings
-lua_State* lState;
 
 #ifdef ENABLE_IM_LUA_END_STACK
 // Stack for imgui begin and end
@@ -40,43 +40,43 @@ static void ImEndStack(int type);
 
 // Example lua run string function
 // returns NULL on success and error string on error
-const char * RunString(const char* szLua) {
-  if (!lState) {
-    fprintf(stderr, "You didn't assign the global lState, either assign that or refactor LoadImguiBindings and RunString\n");
-  }
-
-  int iStatus = luaL_loadstring(lState, szLua);
-  if(iStatus) {
-    return lua_tostring(lState, -1);
-    //fprintf(stderr, "Lua syntax error: %s\n", lua_tostring(lState, -1));
-    //return;
-  }
-#ifdef ENABLE_IM_LUA_END_STACK
-  endStack.clear();
-#endif
-  iStatus = lua_pcall( lState, 0, 0, 0 );
-
-#ifdef ENABLE_IM_LUA_END_STACK
-  bool wasEmpty = endStack.empty();
-  while(!endStack.empty()) {
-    ImEndStack(endStack.back());
-    endStack.pop_back();
-  }
-
-#endif
-  if( iStatus )
-  {
-      return lua_tostring(lState, -1);
-      //fprintf(stderr, "Error: %s\n", lua_tostring( lState, -1 ));
-      //return;
-  }
-#ifdef ENABLE_IM_LUA_END_STACK
-  else if (!wasEmpty) {
-    return "Script didn't clean up imgui stack properly";
-  }
-#endif
-  return NULL;
-}
+//const char * RunString(const char* szLua) {
+//  if (!lState) {
+//    fprintf(stderr, "You didn't assign the global lState, either assign that or refactor load_imgui_bindings and RunString\n");
+//  }
+//
+//  int iStatus = luaL_loadstring(lState, szLua);
+//  if(iStatus) {
+//    return lua_tostring(lState, -1);
+//    //fprintf(stderr, "Lua syntax error: %s\n", lua_tostring(lState, -1));
+//    //return;
+//  }
+//#ifdef ENABLE_IM_LUA_END_STACK
+//  endStack.clear();
+//#endif
+//  iStatus = lua_pcall( lState, 0, 0, 0 );
+//
+//#ifdef ENABLE_IM_LUA_END_STACK
+//  bool wasEmpty = endStack.empty();
+//  while(!endStack.empty()) {
+//    ImEndStack(endStack.back());
+//    endStack.pop_back();
+//  }
+//
+//#endif
+//  if( iStatus )
+//  {
+//      return lua_tostring(lState, -1);
+//      //fprintf(stderr, "Error: %s\n", lua_tostring( lState, -1 ));
+//      //return;
+//  }
+//#ifdef ENABLE_IM_LUA_END_STACK
+//  else if (!wasEmpty) {
+//    return "Script didn't clean up imgui stack properly";
+//  }
+//#endif
+//  return NULL;
+//}
 
 
 #define IMGUI_FUNCTION_DRAW_LIST(name) \
@@ -497,9 +497,9 @@ static void PushImguiEnums(lua_State* lState, const char* tableName) {
 };
 
 
-void LoadImguiBindings() {
+void load_imgui_bindings(lua_State* lState) {
   if (!lState) {
-    fprintf(stderr, "You didn't assign the global lState, either assign that or refactor LoadImguiBindings and RunString\n");
+    fprintf(stderr, "You didn't assign the global lState, either assign that or refactor load_imgui_bindings and RunString\n");
   }
   lua_newtable(lState);
   luaL_setfuncs(lState, imguilib, 0);

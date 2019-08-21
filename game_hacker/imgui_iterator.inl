@@ -1608,7 +1608,6 @@ MAKE_ENUM(ImGuiWindowFlags_AlwaysHorizontalScrollbar,AlwaysHorizontalScrollbar)
 //    ImGuiWindowFlags_AlwaysUseWindowPadding = 1 << 16,  // Ensure child windows without border uses style.WindowPadding (ignored by default for non-bordered child windows, because more convenient)
 MAKE_ENUM(ImGuiWindowFlags_AlwaysUseWindowPadding,AlwaysUseWindowPadding)
 //    ImGuiWindowFlags_ResizeFromAnySide      = 1 << 17,  // [BETA] Enable resize from any corners and borders. Your back-end needs to honor the different values of io.MouseCursor set by imgui.
-MAKE_ENUM(ImGuiWindowFlags_ResizeFromAnySide,ResizeFromAnySide)
 //    ImGuiWindowFlags_NoNavInputs            = 1 << 18,  // No gamepad/keyboard navigation within the window
 MAKE_ENUM(ImGuiWindowFlags_NoNavInputs,NoNavInputs)
 //    ImGuiWindowFlags_NoNavFocus             = 1 << 19,  // No focusing toward this window with gamepad/keyboard navigation (e.g. skipped by CTRL+TAB)
@@ -1744,7 +1743,6 @@ END_ENUM(FocusedFlags)
 
 START_ENUM(HoveredFlags)
 //    ImGuiHoveredFlags_Default                       = 0,        // Return true if directly over the item/window, not obstructed by another window, not obstructed by an active popup or modal blocking inputs under them.
-MAKE_ENUM(ImGuiHoveredFlags_Default,Default)
 //    ImGuiHoveredFlags_ChildWindows                  = 1 << 0,   // IsWindowHovered() only: Return true if any children of the window is hovered
 MAKE_ENUM(ImGuiHoveredFlags_ChildWindows,ChildWindows)
 //    ImGuiHoveredFlags_RootWindow                    = 1 << 1,   // IsWindowHovered() only: Test from root window (top most parent of the current hierarchy)
