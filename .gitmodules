@@ -13,3 +13,6 @@
 [submodule "third_party/luabridge"]
 	path = third_party/luabridge
 	url = https://github.com/vinniefalco/LuaBridge
+[submodule "third_party/lanes"]
+	path = third_party/lanes
+	url = https://github.com/Sr173/lanes
