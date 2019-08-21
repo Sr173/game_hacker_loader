@@ -1,12 +1,11 @@
 ﻿#include "ScriptEngine.h"
-#include "../third_party/luajit/src/lua.hpp"
 #include "ScriptManager.h"
 
 extern  "C" {
-#include "../third_party/lanes/src/lanes.h"
-#include "../third_party/lanes/src/compat.h"
-\
+#include "lanes.h"
+#include "compat.h"
 }
+
 #pragma  comment (lib,"../third_party/luajit/src/lua51.lib")
 #pragma  comment (lib,"../third_party/lanes/Release/core.lib")
 
