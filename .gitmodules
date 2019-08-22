@@ -15,4 +15,4 @@
 	url = https://github.com/vinniefalco/LuaBridge
 [submodule "third_party/lanes"]
 	path = third_party/lanes
-	url = https://github.com/Sr173/lanes
+	url = https://github.com/LuaLanes/lanes
