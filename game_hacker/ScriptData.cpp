@@ -20,7 +20,7 @@ std::vector<uint8_t> script_data::get_data() const
 	buffer.resize(data_.size());
 	buffer.assign(std::begin(data_),std::end(data_));
 	AES_ctx ctx;
-	AES_init_ctx_iv(&ctx, script_manager::get_singleton_ptr()->get_ase_key_().data(), script_manager::get_singleton_ptr()->get_ase_iv_().data());
+	AES_init_ctx_iv(&ctx, SCRIPT_MANAGER_INSTANCE->get_ase_key_().data(), SCRIPT_MANAGER_INSTANCE->get_ase_iv_().data());
 	AES_CTR_xcrypt_buffer(&ctx, buffer.data(), buffer.size());
 	return std::move(buffer);
 }

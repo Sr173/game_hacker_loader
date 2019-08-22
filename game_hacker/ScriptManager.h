@@ -6,12 +6,13 @@
 
 class script_engine;
 
-class script_manager : public singleton<script_manager>
+class script_manager
 {
 public:
+	using singleton = singleton<script_manager>;
 	int load_all_script(std::string local_path, std::string check_server_path);
 
-	void do_main_engine(std::string name);
+	void do_main_engine();
 
 	const std::vector<uint8_t>& get_ase_key_() const { return aes_key_; }
 
@@ -43,3 +44,5 @@ private:
 	std::vector<uint8_t> aes_key_;
 	std::vector<uint8_t> aes_iv_;
 };
+
+#define SCRIPT_MANAGER_INSTANCE script_manager::singleton::get_singleton_ptr()

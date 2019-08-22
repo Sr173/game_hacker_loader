@@ -167,6 +167,7 @@
     <ClCompile Include="..\third_party\imgui\imgui_widgets.cpp" />
     <ClCompile Include="aes.c" />
     <ClCompile Include="game_hacker.cpp" />
+    <ClCompile Include="imgui_export.cpp" />
     <ClCompile Include="imgui_impl_dx9.cpp" />
     <ClCompile Include="imgui_impl_win32.cpp" />
     <ClCompile Include="imgui_lua_bindings.cpp" />

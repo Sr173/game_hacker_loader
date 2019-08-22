@@ -82,7 +82,7 @@ int script_engine::script_loader(lua_State* loader)
 
 	std::replace(script_name.begin(), script_name.end(), '.', '/');
 
-	const auto script = script_manager::get_singleton_ptr()->get_script_data(script_name.data());
+	const auto script = SCRIPT_MANAGER_INSTANCE->get_script_data(script_name.data());
 	if (script == nullptr) {
 		MessageBoxA(nullptr, script_name.data(), "加载脚本失败", 0);
 		return 0;

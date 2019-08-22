@@ -20,9 +20,8 @@ int script_manager::load_all_script(std::string local_path, std::string check_se
 	return 0;
 }
 
-void script_manager::do_main_engine(std::string name)
+void script_manager::do_main_engine()
 {
-
 	main_engine_ = script_engine::create_script_engine(0);
 #if defined _DEBUG
 	main_engine_->do_script(script_data_["main"]);

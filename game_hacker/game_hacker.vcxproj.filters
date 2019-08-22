@@ -72,6 +72,9 @@
     <ClCompile Include="aes.c">
       <Filter>encrypt\aes</Filter>
     </ClCompile>
+    <ClCompile Include="imgui_export.cpp">
+      <Filter>ImGui</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="imgui_iterator.inl">
