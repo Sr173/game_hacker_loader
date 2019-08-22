@@ -1,5 +1,8 @@
 ﻿#include "ScriptEngine.h"
 #include "ScriptManager.h"
+#include <lua.hpp>
+#include <algorithm>
+#include <windows.h>
 
 extern  "C" {
 #include "lanes.h"
