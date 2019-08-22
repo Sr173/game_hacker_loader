@@ -1,5 +1,4 @@
 local ffi = require"ffi"
-require "api.common.windef"
 
 local user32def = {}
 
@@ -23,4 +22,14 @@ ffi.cdef [[
         LPCSTR      lpszClassName;
         void*       hIconSm;
     } WNDCLASSEXA, *PWNDCLASSEXA, *NPWNDCLASSEXA, *LPWNDCLASSEXA;
+
+    typedef struct tagMSG {
+        HWND        hwnd;
+        UINT        message;
+        WPARAM      wParam;
+        LPARAM      lParam;
+        DWORD       time;
+        POINT       pt;
+    } MSG, *PMSG,  *NPMSG,  *LPMSG;
 ]]
+

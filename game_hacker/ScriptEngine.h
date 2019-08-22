@@ -28,7 +28,7 @@ public:
 	int load_buffer(const script_data& data) const;
 
 	static void lua_new_state_callback(lua_State* from, lua_State* new_s);
-	
+
 	static int script_loader(lua_State* loader);
 
 	const std::string& get_last_error_message();

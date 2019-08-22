@@ -4,6 +4,8 @@
 #include <map>
 #include <memory>
 
+#define _DEBUG
+
 class script_engine;
 
 class script_manager

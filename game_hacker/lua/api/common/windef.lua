@@ -30,14 +30,6 @@ ffi.cdef [[
     typedef CHAR *NPSTR, *LPSTR, *PSTR;
     typedef const CHAR *LPCSTR, *PCSTR;
 
-    typedef struct tagRECT
-    {
-      LONG    left;
-      LONG    top;
-      LONG    right;
-      LONG    bottom;
-    } RECT, *PRECT,  *NPRECT,  *LPRECT;
-
     typedef  int INT_PTR, *PINT_PTR;
     typedef  unsigned int UINT_PTR, *PUINT_PTR;
 
@@ -47,6 +39,20 @@ ffi.cdef [[
     typedef UINT_PTR            WPARAM;
     typedef LONG_PTR            LPARAM;
     typedef LONG_PTR            LRESULT;
+
+    typedef struct tagRECT
+    {
+      LONG    left;
+      LONG    top;
+      LONG    right;
+      LONG    bottom;
+    } RECT, *PRECT,  *NPRECT,  *LPRECT;
+
+    typedef struct tagPOINT
+    {
+      LONG  x;
+      LONG  y;
+    } POINT, *PPOINT, *NPPOINT, *LPPOINT;
 ]]
 
 windef.MAX_PATH = 260

@@ -1,5 +1,4 @@
 local ffi = require "ffi"
-require "api/common/windef"
 
 ffi.cdef [[
     typedef void *HANDLE;
@@ -40,3 +39,5 @@ ffi.cdef [[
         } DUMMYUNIONNAME;
     } INPUT, *PINPUT;
 ]]
+
+return {}

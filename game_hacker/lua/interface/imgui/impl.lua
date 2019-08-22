@@ -1,5 +1,4 @@
 local ffi = require "ffi"
-require "api.user32.user32"
 
 local imgui_impl = {}
 

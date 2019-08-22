@@ -4,6 +4,8 @@
 #include <tchar.h>
 #include "imgui_impl_dx9.h"
 #include "imgui_impl_win32.h"
+#include <mutex>
+
 static LPDIRECT3D9              g_pD3D = NULL;
 static LPDIRECT3DDEVICE9        g_pd3dDevice = NULL;
 static D3DPRESENT_PARAMETERS    g_d3dpp = {};
@@ -108,4 +110,26 @@ extern "C" __declspec(dllexport) void gdpgztldsxwsndat(unsigned int rgba)
 	// Handle loss of D3D9 device
 	if (result == D3DERR_DEVICELOST && g_pd3dDevice->TestCooperativeLevel() == D3DERR_DEVICENOTRESET)
 		wfdwgrzarqpghshn();
+}
+
+/*
+ * @Sr173
+ * utf8_2_gbk
+ */
+extern "C" __declspec(dllexport) const char* gdpgztldsxwsndatt(const char* strUTF8)
+{
+	static std::mutex mutex;
+	std::lock_guard<std::mutex> lock_(mutex);
+
+	static wchar_t wszGBK[0x1000];
+	static char szGBK[0x1000];
+
+	int len = MultiByteToWideChar(CP_UTF8, 0, strUTF8, -1, NULL, 0);
+	memset(wszGBK, 0, len * 2 + 2);
+	MultiByteToWideChar(CP_UTF8, 0, strUTF8, -1, wszGBK, len);
+	len = WideCharToMultiByte(CP_ACP, 0, wszGBK, -1, NULL, 0, NULL, NULL);
+	memset(szGBK, 0, len + 1);
+	WideCharToMultiByte(CP_ACP, 0, wszGBK, -1, szGBK, len, NULL, NULL);
+
+	return szGBK;
 }

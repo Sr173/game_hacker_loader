@@ -1,4 +1,4 @@
-local kernel32 = require "api/kernel32/kernel32"
+local kernel32 = require "api.kernel32.kernel32"
 local ffi = require "ffi"
 local bit = require "bit"
 

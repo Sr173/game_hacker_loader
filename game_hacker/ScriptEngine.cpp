@@ -1,16 +1,15 @@
 ﻿#include "ScriptEngine.h"
 #include "ScriptManager.h"
 #include <lua.hpp>
+#include "LuaBridge/LuaBridge.h"
 #include <algorithm>
 #include <windows.h>
+#include "mutex"
 
 extern  "C" {
 #include "lanes.h"
 #include "compat.h"
 }
-
-#pragma  comment (lib,"../third_party/luajit/src/lua51.lib")
-#pragma  comment (lib,"../third_party/lanes/Release/core.lib")
 
 //#pragma  comment (lib,"../third_party/luajit/src/luajit.lib")
 
@@ -41,7 +40,6 @@ std::shared_ptr<script_engine> script_engine::create_script_engine(const int fla
 	{
 		luaL_requiref(vm, "lanes.core", luaopen_lanes_core, 0);
 	}
-
 	return std::make_shared<script_engine>(vm);
 }
 
@@ -68,6 +66,7 @@ int script_engine::load_buffer(const script_data& data) const
 
 void script_engine::lua_new_state_callback(lua_State* from, lua_State* new_s)
 {
+	
 	lua_register(new_s, "my_loader", &script_engine::script_loader);
 	std::string     str;
 	str += "table.insert(package.loaders,   2, my_loader) \n";   // Older than lua v5.2
@@ -79,9 +78,10 @@ int script_engine::script_loader(lua_State* loader)
 {
 	const char* name = luaL_checkstring(loader, 1);
 	std::string script_name(name);
+	std::cout << name << std::endl;
 
 	std::replace(script_name.begin(), script_name.end(), '.', '/');
-
+	
 	const auto script = SCRIPT_MANAGER_INSTANCE->get_script_data(script_name.data());
 	if (script == nullptr) {
 		MessageBoxA(nullptr, script_name.data(), "加载脚本失败", 0);

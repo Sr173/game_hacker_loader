@@ -9,9 +9,17 @@
 
 #pragma comment(lib,"lua51.lib")
 #pragma comment(lib,"luajit.lib")
+#pragma comment(lib,"lanes.lib")
+
+extern "C" __declspec(dllexport) void* my_malloc(size_t size)
+{
+	return malloc(size);
+}
+
 
 auto main() noexcept -> int
 {
 	SCRIPT_MANAGER_INSTANCE->load_all_script("lua/", "");
 	SCRIPT_MANAGER_INSTANCE->do_main_engine();
+	system("pause");
 }
